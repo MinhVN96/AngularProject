@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBWareHouseStoreContainer" CdmEntityContainer="WareHouseDB">
+    <EntitySetMapping Name="CategoryProducts">
+      <EntityTypeMapping TypeName="DBWareHouse.CategoryProduct">
+        <MappingFragment StoreEntitySet="CategoryProduct">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="DBWareHouse.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExportWarehouses">
+      <EntityTypeMapping TypeName="DBWareHouse.ExportWarehouse">
+        <MappingFragment StoreEntitySet="ExportWarehouse">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImportWarehouses">
+      <EntityTypeMapping TypeName="DBWareHouse.ImportWarehouse">
+        <MappingFragment StoreEntitySet="ImportWarehouse">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="DBWareHouse.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="DBWareHouse.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouses">
+      <EntityTypeMapping TypeName="DBWareHouse.Warehouse">
+        <MappingFragment StoreEntitySet="Warehouse">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailExportWarehouses">
+      <EntityTypeMapping TypeName="DBWareHouse.DetailExportWarehouse">
+        <MappingFragment StoreEntitySet="DetailExportWarehouse">
+          <ScalarProperty Name="ExportID" ColumnName="ExportID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailImportWarehoses">
+      <EntityTypeMapping TypeName="DBWareHouse.DetailImportWarehose">
+        <MappingFragment StoreEntitySet="DetailImportWarehose">
+          <ScalarProperty Name="ImportID" ColumnName="ImportID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
