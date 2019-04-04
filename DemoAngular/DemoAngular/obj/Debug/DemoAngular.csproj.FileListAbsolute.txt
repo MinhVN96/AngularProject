@@ -101,3 +101,6 @@ c:\users\ngocm\source\repos\DemoAngular\DemoAngular\obj\Debug\DemoAngular.csproj
 c:\users\ngocm\source\repos\DemoAngular\DemoAngular\obj\Debug\DemoAngular.csproj.CopyComplete
 c:\users\ngocm\source\repos\DemoAngular\DemoAngular\obj\Debug\DemoAngular.dll
 c:\users\ngocm\source\repos\DemoAngular\DemoAngular\obj\Debug\DemoAngular.pdb
+C:\Users\ngocm\source\repos\DemoAngular\DemoAngular\bin\System.Web.Cors.dll
+C:\Users\ngocm\source\repos\DemoAngular\DemoAngular\bin\System.Web.Http.Cors.dll
+C:\Users\ngocm\source\repos\DemoAngular\DemoAngular\bin\System.Web.Http.Cors.xml
