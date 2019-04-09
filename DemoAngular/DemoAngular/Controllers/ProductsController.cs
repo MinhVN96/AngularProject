@@ -103,6 +103,26 @@ namespace DemoAngular.Controllers
             return Ok(product);
         }
 
+        [Route("Save")]
+        [HttpPost]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Save(List<Product> productlist)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            foreach (var data in productlist)
+            {
+                db.Products.Add(data);
+            }
+            db.SaveChanges();
+
+            return StatusCode(HttpStatusCode.OK);
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

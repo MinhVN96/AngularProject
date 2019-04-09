@@ -1,3 +1,6 @@
+
+<div class="container" style="text-align:center">
+  <h2 class="p-8 mb-2 bg-dark text-white">Create</h2>
 <form class="pro-form" #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
   <input type="hidden" name="ProductID" #ProductID="ngModel" [(ngModel)]="productService.selectedProduct.ProductID">
   <div class="form-group">
@@ -39,4 +42,27 @@
         <i class="fa fa-repeat"></i> Reset</button>
     </div>
   </div>
+  <div class="form-group">
+    <h3>Product List</h3>
+    <table class="table table-sm table-hover">
+      <tr *ngFor="let product of productService.productList">
+        <td>{{product.ID}}</td>
+        <td>{{product.Name}}</td>
+        <td>{{product.Price}}</td>
+        <td>{{product.Status}}</td>
+        <td>
+          <a class="btn" (click)="showForEdit(product)">
+            <i class="fa fa-pencil-square-o"></i>
+          </a>
+          <a class="btn text-danger" (click)="onDelete(product.ProductID)">
+            <i class="fa fa-trash-o"></i>
+          </a>
+          <!-- <button type="button" class="btn btn-danger"matTooltip="Click Delete Button"(click)="onDelete(product.ProductID)">Delete</button> -->
+          <!-- <button type="button" class="btn btn-info"matTooltip="Click Edit Button"(click)="showForEdit(product.ProductID)">Edit</button> -->
+    
+        </td>
+      </tr>
+    </table>
+  </div>
 </form>
+</div>

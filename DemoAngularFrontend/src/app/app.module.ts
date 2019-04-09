@@ -26,6 +26,13 @@ import { ImportWarehouseListComponent } from './import-warehouses/import-warehou
 import { ExportWarehousesComponent } from './export-warehouses/export-warehouses.component';
 import { ExportWarehouseComponent } from './export-warehouses/export-warehouse/export-warehouse.component';
 import { ExportWarehouseListComponent } from './export-warehouses/export-warehouse-list/export-warehouse-list.component';
+import { CartComponent } from './cart/cart.component';
+import { DetailExportWarehousesComponent } from './detail-export-warehouses/detail-export-warehouses.component';
+import { DetailExportWarehouseComponent } from './detail-export-warehouses/detail-export-warehouse/detail-export-warehouse.component';
+import { DetailExportWarehouseListComponent } from './detail-export-warehouses/detail-export-warehouse-list/detail-export-warehouse-list.component';
+import {ProductService} from '../app/products/shared/product.service';
+
+  
 
 @NgModule({
   declarations: [
@@ -50,7 +57,11 @@ import { ExportWarehouseListComponent } from './export-warehouses/export-warehou
     ImportWarehouseListComponent,
     ExportWarehousesComponent,
     ExportWarehouseComponent,
-    ExportWarehouseListComponent
+    ExportWarehouseListComponent,
+    CartComponent,
+    DetailExportWarehousesComponent,
+    DetailExportWarehouseComponent,
+    DetailExportWarehouseListComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +70,7 @@ import { ExportWarehouseListComponent } from './export-warehouses/export-warehou
     HttpModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

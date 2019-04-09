@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../shared/product.service'
-import { Product } from '../shared/product.model';
+
 import { ToastrService } from 'ngx-toastr'; 
 @Component({
   selector: 'app-product-list',
@@ -14,18 +14,5 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.productService.getProductList();
   }
-  showForEdit(pro: Product) {
-    this.productService.selectedProduct = Object.assign({}, pro);;
-  }
- 
- 
-  onDelete(id: number) {
-    if (confirm('Are you sure to delete this record ?') == true) {
-      this.productService.deleteProduct(id)
-      .subscribe(x => {
-        this.productService.getProductList();
-        this.toastr.warning("Deleted Successfully","Product Register");
-      })
-    }
-  }
+  
 }
