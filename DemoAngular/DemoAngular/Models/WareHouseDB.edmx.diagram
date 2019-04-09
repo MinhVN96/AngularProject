@@ -24,6 +24,7 @@
         <AssociationConnector Association="DBWareHouse.FK_DetailExportWarehouse_Product1" ManuallyRouted="false" />
         <AssociationConnector Association="DBWareHouse.FK_DetailImportWarehose_Product1" ManuallyRouted="false" />
         <AssociationConnector Association="DBWareHouse.FK_Product_Warehouse" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBWareHouse.Account" Width="1.5" PointX="8.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

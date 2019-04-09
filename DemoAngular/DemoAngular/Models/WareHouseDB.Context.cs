@@ -34,5 +34,6 @@ namespace DemoAngular.Models
         public virtual DbSet<Warehouse> Warehouses { get; set; }
         public virtual DbSet<DetailExportWarehouse> DetailExportWarehouses { get; set; }
         public virtual DbSet<DetailImportWarehose> DetailImportWarehoses { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
     }
 }
