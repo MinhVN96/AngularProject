@@ -12,16 +12,16 @@ import {Product} from './product.model'
 export class ProductService {
   selectedProduct : Product;
   productList: Product[];
-  baseurl:string ='http://localhost:64896/api/Products';
+  
   constructor(private http:Http) { }
 
   postProduct(prd:Product){
     var body= JSON.stringify(prd);
     var headersOptions= new Headers({'Content-Type':'application/json'});
     var requestOptions= new RequestOptions({method: RequestMethod.Post, headers: headersOptions});
-    return this.http.post(this.baseurl,body,requestOptions).map(x => x.json());
+    return this.http.post('http://localhost:64896/api/Products',body,requestOptions).map(x => x.json());
   }
-  putProduct(id: number,prd: Product){
+  putProduct(id: string,prd: Product){
     var body = JSON.stringify(prd);
     var headersOptions= new Headers({'Content-Type':'application/json'});
     var requestOptions = new RequestOptions({method: RequestMethod.Put, headers: headersOptions});
@@ -31,15 +31,15 @@ export class ProductService {
     return this.http.get('http://localhost:64896/api/Products').map((data:Response)=>{return data.json() as Product[];}).toPromise().then(x=>{this.productList=x;});
   }
 
-  getProductById(id: number){        
+  getProductById(id: string){        
     return this.http.get('http://localhost:64896/api/Products/'+id).map((data:Response)=>{return data.json() as Product[];}).toPromise().then(x=>{this.productList=x;});
   }
-  deleteProduct(id: number) {
+  deleteProduct(id: string) {
     var headersOptions= new Headers({'Content-Type':'application/json'});
     var requestOptions= new RequestOptions({method: RequestMethod.Delete, headers: headersOptions});
     return this.http.delete('http://localhost:64896/api/Products/' + id,requestOptions).map(res => res.json());
   }
-  private getSelectedIndex(id: number) {
+  private getSelectedIndex(id: string) {
     for (var i = 0; i < this.productList.length; i++) {
         if (this.productList[i].ProductID == id) {
             return i;
@@ -47,7 +47,7 @@ export class ProductService {
     }
     return -1;
   }
-  find(id: number): Product {
+  find(id: string): Product {
     return this.productList[this.getSelectedIndex(id)];
   }
 

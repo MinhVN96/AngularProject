@@ -68,7 +68,7 @@ export class CartComponent implements OnInit {
 		}
 	}
 
-	remove(id: number): void {
+	remove(id: string): void {
 		let cart: any = JSON.parse(localStorage.getItem('cart'));
 		let index: number = -1;
 		for (var i = 0; i < cart.length; i++) {
