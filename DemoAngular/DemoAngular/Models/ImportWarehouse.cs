@@ -14,20 +14,9 @@ namespace DemoAngular.Models
     
     public partial class ImportWarehouse
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ImportWarehouse()
-        {
-            this.DetailImportWarehoses = new HashSet<DetailImportWarehose>();
-        }
-    
         public long ID { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
         public Nullable<long> SupplierID { get; set; }
         public Nullable<long> WarehouseID { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetailImportWarehose> DetailImportWarehoses { get; set; }
-        public virtual Supplier Supplier { get; set; }
-        public virtual Warehouse Warehouse { get; set; }
     }
 }

@@ -1,68 +1,65 @@
-
-<div class="container" style="text-align:center">
-  <h2 class="p-8 mb-2 bg-dark text-white">Create</h2>
-<form class="pro-form" #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
-  <input type="hidden" name="ProductID" #ProductID="ngModel" [(ngModel)]="productService.selectedProduct.ProductID">
+<div class="container">
+  <h3>Create</h3>
+<div class="form">
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+  <input type="hidden" name="ProductID" #Name="ngModel" [(ngModel)]="productService.formData.ProductID">
   <div class="form-group">
-    <input class="form-control" name="Name" #Name="ngModel" [(ngModel)]="productService.selectedProduct.Name"
-      placeholder="Name" required>
-    <div class="validation-error" *ngIf="Name.invalid && Name.touched">This Field is Required.</div>      
-  </div>
-  
-  <div class="form-group">
-    <input class="form-control" name="CategoryID" #CategoryID="ngModel" [(ngModel)]="productService.selectedProduct.CategoryID" placeholder="CategoryID">
+    <label>Name</label>
+    <input name="Name" #Name="ngModel" [(ngModel)]="productService.formData.Name" class="form-control" required>
+    <div class="validation error" *ngIf="Name.invalid && Name.touched">This field is required</div>
   </div>
   <div class="form-group">
-      <input class="form-control" name="WarehouseID" #WarehouseID="ngModel" [(ngModel)]="productService.selectedProduct.WarehouseID" placeholder="WarehouseID">
+    <label>Brand</label>
+    <input name="Brand" #Brand="ngModel" [(ngModel)]="productService.formData.Brand" class="form-control">
+  </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Price</label>
+        <input name="Price" #Price="ngModel" [(ngModel)]="productService.formData.Price" class="form-control">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Status</label>
+        <input name="Status" #Status="ngModel" [(ngModel)]="productService.formData.Status" class="form-control">
+      </div>
+      
     </div>
-  <div class="form-group">
-      <input class="form-control" name="Brand" #Brand="ngModel" [(ngModel)]="productService.selectedProduct.Brand" placeholder="Brand">
-  </div>
-  <div class="form-group">
-      <input class="form-control" name="Price" #Price="ngModel" [(ngModel)]="productService.selectedProduct.Price" placeholder="Price">
-  </div>
-  <div class="form-group">
-      <input class="form-control" name="Count" #Count="ngModel" [(ngModel)]="productService.selectedProduct.Count" placeholder="Count">
-  </div>
-
-  <div class="form-group">
-      <input class="form-control" name="Image" #Image="ngModel" [(ngModel)]="productService.selectedProduct.Image" placeholder="Image">
-  </div>
-  <div class="form-group">
-      <input class="form-control" name="Status" #Status="ngModel" [(ngModel)]="productService.selectedProduct.Status" placeholder="Status">
-  </div>
-
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <button [disabled]="!productForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
-        <i class="fa fa-floppy-o"></i> Create</button>
-    </div>
-    <div class="form-group col-md-6">
-      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(productForm)">
-        <i class="fa fa-repeat"></i> Reset</button>
-    </div>
-  </div>
-  <div class="form-group">
-    <h3>Product List</h3>
-    <table class="table table-sm table-hover">
-      <tr *ngFor="let product of productService.productList">
-        <td>{{product.ID}}</td>
-        <td>{{product.Name}}</td>
-        <td>{{product.Price}}</td>
-        <td>{{product.Status}}</td>
-        <td>
-          <a class="btn" (click)="showForEdit(product)">
-            <i class="fa fa-pencil-square-o"></i>
-          </a>
-          <a class="btn text-danger" (click)="onDelete(product.ProductID)">
-            <i class="fa fa-trash-o"></i>
-          </a>
-          <!-- <button type="button" class="btn btn-danger"matTooltip="Click Delete Button"(click)="onDelete(product.ProductID)">Delete</button> -->
-          <!-- <button type="button" class="btn btn-info"matTooltip="Click Edit Button"(click)="showForEdit(product.ProductID)">Edit</button> -->
-    
-        </td>
-      </tr>
-    </table>
-  </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <button [disabled]="!productForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+            <i class="fa fa-floppy-o"></i> Submit</button>
+        </div>
+        <div class="form-group col-md-6">
+          <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(productForm)">
+            <i class="fa fa-repeat"></i> Reset</button>
+        </div>
+      </div>
 </form>
+</div>
+<div class="form">
+  <h3>Product List</h3>
+<table class="table table-hover">
+    <tr>
+      <td>Name</td>
+      <td>Brand</td>
+      <td>Price</td>
+      <td>Status</td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let product of productService.listProduct">
+      <td (click)="populateForm(product)"> 
+        {{product.Name}}
+      </td>
+      <td (click)="populateForm(product)">
+        {{product.Brand}}
+      </td>
+      <td (click)="populateForm(product)">
+        {{product.Price}}
+      </td>
+      <td (click)="populateForm(product)">
+        {{product.Status}}
+      </td>
+      <td><button (click)="onDelete(product.ProductID)" class="btn btn-sm btn-outline-danger">x</button></td>
+    </tr>
+  </table>
+</div>
 </div>

@@ -1,29 +1,38 @@
 <h3>Cart Info</h3>
-<table border="1">
-    <tr>
-        <th>Option</th>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Photo</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Sub Total</th>
-    </tr>
-    <tr *ngFor="let item of items">
-        <td align="center">
-            <a (click)="remove(item.product.id)">X</a>
-        </td>
-        <td>{{item.product.id}}</td>
-        <td>{{item.product.name}}</td>
-        <td>
-            <img src="assets/http://learningprogramming.net/wp-content/uploads/mean_stack/angular/{{item.product.photo}}" width="50">
-        </td>
-        <td>{{item.product.price}}</td>
-        <td>{{item.quantity}}</td>
-        <td>{{item.product.price * item.quantity}}</td>
-    </tr>
-    <tr>
-        <td colspan="6" align="right">Total</td>
-        <td>{{total}}</td>
-    </tr>
-</table>
+
+<div class="form-group">
+<table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Count</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let list of productService.listProduct">
+              <td>{{list.ProductID}}</td>
+              <td>{{list.Name}}</td>
+              <td>{{list.Brand}}</td>
+              <td>{{list.Price|currency: 'VNĐ '}}</td>
+              <td>
+                {{list.Count}}
+                <button class="btn btn-success btn-xs plus" (click)="add(productService.listProduct)"><i class="glyphicon glyphicon-plus">+</i></button>
+                <button class="btn btn-danger btn-xs minus" (click)="del(productService.listProduct)"><i class="glyphicon glyphicon-minus">-</i></button>
+              </td>
+              <td>
+                <button class="btn btn-danger btn-sm" (click)="delpopup(productService.listProduct)">Delete</button>
+              </td>
+            </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total Price</td>
+            <td colspan="6" class="text-right">{{total | currency: 'VNĐ ' }}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>

@@ -14,20 +14,9 @@ namespace DemoAngular.Models
     
     public partial class ExportWarehouse
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ExportWarehouse()
-        {
-            this.DetailExportWarehouses = new HashSet<DetailExportWarehouse>();
-        }
-    
         public long ID { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
         public Nullable<long> CustomerID { get; set; }
         public Nullable<long> WarehouseID { get; set; }
-    
-        public virtual Customer Customer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetailExportWarehouse> DetailExportWarehouses { get; set; }
-        public virtual Warehouse Warehouse { get; set; }
     }
 }

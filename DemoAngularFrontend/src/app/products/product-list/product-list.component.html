@@ -1,23 +1,25 @@
-<div style="text-align:center">
-  <h2 class="p-8 mb-2 bg-dark text-white">Products</h2>
-  <div>
-<table class="table table-sm table-hover">
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Status</th>
-        <th></th>
-    </tr>
-  <tr *ngFor="let product of productService.productList">
-
-    <td>{{product.Name}}</td>
-    <td>{{product.Price}}</td>
-    <td>{{product.Status}}</td>
-    <td>      
-      <a [routerLink]="['/cart', { id:product.id }]">Buy Now</a>       
-    </td>
+<h3>Products</h3>
+<table class="table table-hover">
+  <tr>
+    <td>Name</td>
+    <td>Brand</td>
+    <td>Price</td>
+    <td>Status</td>
+    <td></td>
   </tr>
-
+  <tr *ngFor="let product of productService.listProduct">
+    <td> 
+      {{product.Name}}
+    </td>
+    <td>
+      {{product.Brand}}
+    </td>
+    <td>
+      {{product.Price}}
+    </td>
+    <td>
+      {{product.Status}}
+    </td>
+    <td><a [routerLink]="['/cart', { id:product.ProductID }]">Buy Now</a></td>
+  </tr>
 </table>
-</div>
-</div>

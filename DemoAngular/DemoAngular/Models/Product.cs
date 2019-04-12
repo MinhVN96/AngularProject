@@ -14,13 +14,6 @@ namespace DemoAngular.Models
     
     public partial class Product
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
-        {
-            this.DetailExportWarehouses = new HashSet<DetailExportWarehouse>();
-            this.DetailImportWarehoses = new HashSet<DetailImportWarehose>();
-        }
-    
         public long ID { get; set; }
         public string Name { get; set; }
         public Nullable<long> CategoryID { get; set; }
@@ -30,12 +23,5 @@ namespace DemoAngular.Models
         public string Image { get; set; }
         public string Status { get; set; }
         public Nullable<long> WarehouseID { get; set; }
-    
-        public virtual CategoryProduct CategoryProduct { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetailExportWarehouse> DetailExportWarehouses { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetailImportWarehose> DetailImportWarehoses { get; set; }
-        public virtual Warehouse Warehouse { get; set; }
     }
 }

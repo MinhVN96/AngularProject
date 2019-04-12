@@ -41,10 +41,10 @@ namespace DemoAngular.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutProduct(long id, Product product)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             if (id != product.ID)
             {
@@ -76,10 +76,10 @@ namespace DemoAngular.Controllers
         [ResponseType(typeof(Product))]
         public IHttpActionResult PostProduct(Product product)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             db.Products.Add(product);
             db.SaveChanges();

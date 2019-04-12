@@ -18,8 +18,5 @@ namespace DemoAngular.Models
         public long ProductID { get; set; }
         public Nullable<int> Count { get; set; }
         public Nullable<decimal> Price { get; set; }
-    
-        public virtual ExportWarehouse ExportWarehouse { get; set; }
-        public virtual Product Product { get; set; }
     }
 }

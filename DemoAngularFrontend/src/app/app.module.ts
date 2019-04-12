@@ -7,6 +7,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './products/product/product.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import {FormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 import { CategoryProductsComponent } from './category-products/category-products.component';
 import { CategoryProductComponent } from './category-products/category-product/category-product.component';
@@ -31,7 +32,7 @@ import { DetailExportWarehousesComponent } from './detail-export-warehouses/deta
 import { DetailExportWarehouseComponent } from './detail-export-warehouses/detail-export-warehouse/detail-export-warehouse.component';
 import { DetailExportWarehouseListComponent } from './detail-export-warehouses/detail-export-warehouse-list/detail-export-warehouse-list.component';
 import {ProductService} from '../app/products/shared/product.service';
-
+import { HttpClientModule } from '@angular/common/http';  
   
 
 @NgModule({
@@ -67,7 +68,8 @@ import {ProductService} from '../app/products/shared/product.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
   providers: [ProductService],
